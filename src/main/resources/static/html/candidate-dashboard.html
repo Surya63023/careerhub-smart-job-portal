@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CareerHub - Candidate Dashboard</title>
+
+<!-- Google Font -->
+
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+	rel="stylesheet">
+
+<!-- Remix Icons -->
+
+<link
+	href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="/css/candidate-dashboard.css">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+</head>
+
+<body>
+
+	<!-- ========================================= -->
+	<!-- OVERLAY -->
+	<!-- ========================================= -->
+
+	<div class="overlay" id="overlay"></div>
+
+	<!-- ========================================= -->
+	<!-- SIDEBAR -->
+	<!-- ========================================= -->
+
+	<aside class="sidebar" id="sidebar">
+
+		<div class="logo-section">
+
+			<div class="logo-icon">
+
+				<i class="ri-briefcase-4-fill"></i>
+
+			</div>
+
+			<h2>CareerHub</h2>
+
+		</div>
+
+		<nav class="sidebar-menu">
+
+			<a href="#" class="menu-item active"> <i
+				class="ri-dashboard-line"></i> <span>Dashboard</span>
+			</a> <a href="#profileSection" class="menu-item"> <i
+				class="ri-user-line"></i> <span>Profile</span>
+			</a> <a href="#resumeSection" class="menu-item"> <i
+				class="ri-file-text-line"></i> <span>Resume</span>
+			</a> <a href="#recommendedJobsSection" class="menu-item"> <i
+				class="ri-search-line"></i> <span>Jobs</span>
+			</a> <a href="#applicationsSection" class="menu-item"> <i
+				class="ri-file-list-3-line"></i> <span>Applications</span>
+			</a> <a href="#" id="logoutBtn" class="menu-item logout-item"> <i
+				class="ri-logout-box-r-line"></i> <span>Logout</span>
+
+			</a>
+
+		</nav>
+
+	</aside>
+
+	<!-- ========================================= -->
+	<!-- MAIN CONTENT -->
+	<!-- ========================================= -->
+
+	<main class="main-content">
+
+		<!-- ========================================= -->
+		<!-- HEADER -->
+		<!-- ========================================= -->
+
+		<header class="top-header">
+
+			<div class="header-left">
+
+				<button class="menu-toggle" id="menuToggle">
+
+					<i class="ri-menu-line"></i>
+
+				</button>
+
+				<div class="search-box">
+
+					<i class="ri-search-line"></i> <input type="text"
+						id="jobSearchInput"
+						placeholder="Search jobs, skills, companies..." />
+
+				</div>
+
+			</div>
+
+			<div class="header-right">
+
+				<button class="theme-toggle" id="themeToggle">
+
+					<i class="ri-moon-line"></i>
+
+				</button>
+
+				<div class="candidate-name">
+
+					<i class="ri-user-3-line"></i> <span id="headerCandidateName">
+
+						Loading... </span>
+
+				</div>
+
+			</div>
+
+		</header>
+
+		<!-- ========================================= -->
+		<!-- SEARCH FILTER PANEL -->
+		<!-- ========================================= -->
+
+		<section class="search-filter-panel">
+
+			<div class="filter-row">
+
+				<select id="locationFilter">
+
+					<option value="">All Locations</option>
+
+					<option value="Bangalore">Bangalore</option>
+
+					<option value="Hyderabad">Hyderabad</option>
+
+					<option value="Chennai">Chennai</option>
+
+					<option value="Pune">Pune</option>
+
+					<option value="Bengaluru">Bengaluru</option>
+
+				</select> <select id="skillFilter">
+
+					<option value="">All Skills</option>
+
+					<option value="Java">Java</option>
+
+					<option value="Spring Boot">Spring Boot</option>
+
+					<option value="React">React</option>
+
+					<option value="MySQL">MySQL</option>
+
+					<option value="Docker">Docker</option>
+
+					<option value="AWS">AWS</option>
+
+				</select> <select id="companyFilter">
+
+					<option value="">All Companies</option>
+
+				</select> <select id="employmentTypeFilter">
+
+					<option value="">Employment Type</option>
+
+					<option value="FULL_TIME">Full Time</option>
+
+					<option value="PART_TIME">Part Time</option>
+
+					<option value="INTERNSHIP">Internship</option>
+
+					<option value="CONTRACT">Contract</option>
+
+				</select>
+
+			</div>
+
+			<div class="filter-row">
+
+				<select id="experienceFilter">
+
+					<option value="">Experience</option>
+
+					<option value="0">0 Years</option>
+
+					<option value="1">1 Year</option>
+
+					<option value="2">2 Years</option>
+
+					<option value="3">3 Years</option>
+
+					<option value="5">5 Years</option>
+
+				</select> <select id="statusFilter">
+
+					<option value="">Job Status</option>
+
+					<option value="OPEN">Open</option>
+
+					<option value="CLOSED">Closed</option>
+
+				</select> <select id="sortFilter">
+
+					<option value="createdAt-desc">Newest First</option>
+
+					<option value="createdAt-asc">Oldest First</option>
+
+					<option value="jobTitle-asc">Job Title (A-Z)</option>
+
+					<option value="jobTitle-desc">Job Title (Z-A)</option>
+
+				</select>
+
+				<button id="applyFiltersBtn" class="primary-btn">
+
+					<i class="ri-filter-3-line"></i> Apply Filters
+
+				</button>
+
+			</div>
+
+		</section>
+
+		<!-- ========================================= -->
+		<!-- WELCOME BANNER -->
+		<!-- ========================================= -->
+
+		<section class="welcome-banner">
+
+			<div class="welcome-content">
+
+				<span class="candidate-badge"> Active Candidate </span>
+
+				<h1>
+
+					Welcome Back, <span id="welcomeUserName"> Loading... </span>
+
+				</h1>
+
+				<p id="welcomeJobTitle">Loading Professional Details...</p>
+
+			</div>
+
+			<div class="welcome-status">
+
+				<div class="status-box">
+
+					<h3 id="accountStatus">ACTIVE</h3>
+
+					<span>Account Status</span>
+
+				</div>
+
+			</div>
+
+		</section>
+
+		<!-- ========================================= -->
+		<!-- STATISTICS -->
+		<!-- ========================================= -->
+
+		<section class="stats-grid">
+
+			<div class="stat-card">
+
+				<div class="stat-icon blue">
+
+					<i class="ri-file-list-3-line"></i>
+
+				</div>
+
+				<div class="stat-content">
+
+					<h3 id="totalApplications">0</h3>
+
+					<p>Total Applications</p>
+
+				</div>
+
+			</div>
+
+			<div class="stat-card">
+
+				<div class="stat-icon green">
+
+					<i class="ri-file-text-line"></i>
+
+				</div>
+
+				<div class="stat-content">
+
+					<h3 id="activeResume">No</h3>
+
+					<p>Active Resume</p>
+
+				</div>
+
+			</div>
+
+			<div class="stat-card">
+
+				<div class="stat-icon orange">
+
+					<i class="ri-award-line"></i>
+
+				</div>
+
+				<div class="stat-content">
+
+					<h3 id="recommendedJobsCount">0</h3>
+
+					<p>Recommended Jobs</p>
+
+				</div>
+
+			</div>
+
+			<div class="stat-card">
+
+				<div class="stat-icon purple">
+
+					<i class="ri-shield-check-line"></i>
+
+				</div>
+
+				<div class="stat-content">
+
+					<h3 id="candidateExperience">0</h3>
+
+					<p>Years Experience</p>
+
+				</div>
+
+			</div>
+
+		</section>
+
+		<!-- ========================================= -->
+		<!-- PROFILE + RESUME -->
+		<!-- ========================================= -->
+
+		<section class="top-grid">
+
+			<!-- PROFILE -->
+
+			<div class="profile-card" id="profileSection">
+
+				<div class="card-header">
+
+					<h2>
+
+						<i class="ri-user-line"></i> Candidate Profile
+
+					</h2>
+
+				</div>
+
+				<div class="profile-details">
+
+					<div class="detail-box">
+
+						<label>Full Name</label> <span id="userFullName">
+
+							Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Email</label> <span id="userEmail"> Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Phone</label> <span id="userPhone"> Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Current Role</label> <span id="displayCurrentJobTitle">
+							Loading... </span>
+
+					</div>
+					<div class="detail-box">
+						<label>Location</label> <span id="displayCurrentLocation">
+							Loading... </span>
+					</div>
+					<div class="detail-box">
+
+						<label>Qualification</label> <span
+							id="displayHighestQualification"> Loading... </span>
+
+					</div>
+					<button id="editProfileBtn" class="primary-btn">
+						<i class="ri-edit-line"></i> Edit Profile
+					</button>
+				</div>
+			</div>
+
+			<!-- RESUME -->
+
+			<div class="resume-card" id="resumeSection">
+
+				<div class="card-header">
+
+					<h2>
+
+						<i class="ri-file-text-line"></i> Resume Information
+
+					</h2>
+
+				</div>
+
+				<div class="resume-details">
+
+					<div class="detail-box">
+
+						<label>Resume Title</label> <span id="dashboardResumeTitle">
+							Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>File Name</label> <span id="resumeFileName">
+
+							Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Uploaded Date</label> <span id="resumeUploadDate">
+
+							Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Status</label> <span id="resumeStatus"> Loading... </span>
+
+					</div>
+
+				</div>
+
+				<div class="resume-actions">
+
+					<button id="uploadResumeBtn" class="primary-btn">
+
+						<i class="ri-upload-cloud-line"></i> Upload Resume
+
+					</button>
+
+					<button id="viewResumeBtn" class="secondary-btn">
+
+						<i class="ri-eye-line"></i> View Resume
+
+					</button>
+
+					<button id="downloadResumeBtn" class="secondary-btn">
+
+						<i class="ri-download-line"></i> Download Resume
+
+					</button>
+
+					<button id="editResumeBtn" class="warning-btn">
+
+						<i class="ri-edit-box-line"></i> Edit Resume
+
+					</button>
+
+				</div>
+			</div>
+
+			<!-- ====================================== -->
+			<!-- EDIT PROFILE MODAL -->
+			<!-- ====================================== -->
+
+			<div id="profileModal" class="modal-overlay">
+
+				<div class="modal-container">
+
+					<div class="modal-header">
+
+						<h2>Edit Candidate Profile</h2>
+
+						<button id="closeProfileModal">
+
+							<i class="ri-close-line"></i>
+
+						</button>
+
+					</div>
+
+					<form id="profileForm">
+
+						<div class="form-grid">
+
+							<div class="form-group">
+								<label>First Name</label> <input type="text" id="firstName">
+							</div>
+
+							<div class="form-group">
+								<label>Last Name</label> <input type="text" id="lastName">
+							</div>
+
+							<div class="form-group">
+								<label>Phone Number</label> <input type="text" id="phoneNumber">
+							</div>
+
+							<div class="form-group">
+								<label>Profile Headline</label> <input type="text"
+									id="profileHeadline">
+							</div>
+
+							<div class="form-group">
+								<label>Current Job Title</label> <input type="text"
+									id="currentJobTitle">
+							</div>
+
+							<div class="form-group">
+								<label>Highest Qualification</label> <input type="text"
+									id="highestQualification">
+							</div>
+
+							<div class="form-group">
+								<label>Experience</label> <input type="number" step="0.1"
+									id="yearsOfExperience">
+							</div>
+
+							<div class="form-group">
+								<label>Location</label> <input type="text" id="currentLocation">
+							</div>
+
+							<div class="form-group">
+								<label>Date Of Birth</label> <input type="date" id="dateOfBirth">
+							</div>
+
+							<div class="form-group">
+								<label>Gender</label> <select id="gender">
+
+									<option value="">Select</option>
+
+									<option value="Male">Male</option>
+
+									<option value="Female">Female</option>
+
+								</select>
+
+							</div>
+
+							<div class="form-group">
+								<label>Expected Salary</label> <input type="number"
+									id="expectedSalary">
+							</div>
+
+							<div class="form-group">
+								<label>LinkedIn</label> <input type="text" id="linkedinUrl">
+							</div>
+
+							<div class="form-group">
+								<label>GitHub</label> <input type="text" id="githubUrl">
+							</div>
+
+							<div class="form-group">
+								<label>Portfolio</label> <input type="text" id="portfolioUrl">
+							</div>
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Professional Summary </label>
+
+							<textarea id="professionalSummary" rows="5"></textarea>
+
+						</div>
+
+						<div class="modal-footer">
+
+							<button type="submit" class="primary-btn">Save Profile</button>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+			<!-- ====================================== -->
+			<!-- EDIT RESUME MODAL -->
+			<!-- ====================================== -->
+
+			<div id="resumeModal" class="modal-overlay">
+
+				<div class="modal-container">
+
+					<div class="modal-header">
+
+						<h2>Edit Resume</h2>
+
+						<button id="closeResumeModal">
+
+							<i class="ri-close-line"></i>
+
+						</button>
+
+					</div>
+
+					<form id="resumeForm">
+
+						<div class="form-group">
+
+							<label> Resume Title </label> <input type="text"
+								id="resumeTitleInput" required>
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Skills </label>
+
+							<textarea id="parsedSkills" rows="4"></textarea>
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Experience </label>
+
+							<textarea id="parsedExperience" rows="4"></textarea>
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Education </label>
+
+							<textarea id="parsedEducation" rows="4"></textarea>
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Replace Resume PDF </label> <input type="file"
+								id="resumeFile" accept=".pdf">
+
+						</div>
+
+						<div class="modal-footer">
+
+							<button type="submit" class="primary-btn">Update Resume
+
+							</button>
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</section>
+
+
+		<!-- ========================================= -->
+		<!-- RECOMMENDED JOBS -->
+		<!-- ========================================= -->
+
+		<section id="recommendedJobsSection" class="dashboard-section">
+
+			<div class="section-header">
+
+				<h2>
+
+					<i class="ri-award-line"></i> AI Recommended Jobs
+
+				</h2>
+
+				<span class="section-badge"> Based On Resume Skills </span>
+
+			</div>
+
+			<div id="recommendedJobsContainer" class="jobs-grid">
+
+				<!-- JavaScript Will Populate -->
+
+			</div>
+
+		</section>
+
+		<!-- ========================================= -->
+		<!-- AI MATCH SECTION -->
+		<!-- ========================================= -->
+
+		<section id="aiMatchSection" class="dashboard-section">
+
+			<div class="section-header">
+
+				<h2>
+
+					<i class="ri-brain-line"></i> AI Match Analysis
+
+				</h2>
+
+			</div>
+
+			<div class="ai-match-card">
+
+				<div class="match-score-container">
+
+					<div class="match-circle">
+
+						<h2 id="matchPercentage">0%</h2>
+
+					</div>
+
+					<p>Overall Match Score</p>
+
+				</div>
+
+				<div class="match-details">
+
+					<div class="match-box">
+
+						<h3>
+
+							<i class="ri-checkbox-circle-line"></i> Matched Skills
+
+						</h3>
+
+						<div id="matchedSkills" class="skills-container">
+							<span class="skill-tag matched"> Waiting For Selection </span>
+						</div>
+
+						<div class="match-box">
+
+							<h3>
+
+								<i class="ri-close-circle-line"></i> Missing Skills
+
+							</h3>
+
+							<div id="missingSkills" class="skills-container">
+								<span class="skill-tag missing"> Waiting For Selection </span>
+							</div>
+
+						</div>
+
+					</div>
+		</section>
+
+		<!-- ========================================= -->
+		<!-- SEARCH RESULTS -->
+		<!-- ========================================= -->
+
+		<section id="searchResultsSection" class="dashboard-section">
+
+			<div class="section-header">
+
+				<h2>
+					<i class="ri-search-line"></i> Search Results
+				</h2>
+
+				<span id="searchResultCount" class="section-badge"> 0 Jobs
+					Found </span>
+
+			</div>
+
+			<div id="searchResultsContainer" class="jobs-grid">
+
+				<!-- Search Results -->
+
+			</div>
+
+			<!-- Pagination -->
+
+			<div id="searchPaginationContainer"></div>
+
+		</section>
+
+		<!-- ========================================= -->
+		<!-- APPLICATIONS SECTION -->
+		<!-- ========================================= -->
+
+		<section id="applicationsSection" class="dashboard-section">
+
+			<div class="section-header">
+
+				<h2>
+
+					<i class="ri-file-list-3-line"></i> Applied Jobs
+
+				</h2>
+
+			</div>
+
+			<div id="applicationsContainer" class="applications-container">
+
+				<!-- JavaScript Will Populate -->
+
+			</div>
+
+		</section>
+
+
+
+		<!-- ========================================= -->
+		<!-- LOADING OVERLAY -->
+		<!-- ========================================= -->
+
+		<div id="loadingOverlay" class="loading-overlay">
+
+			<div class="loader"></div>
+
+			<p>Loading Dashboard...</p>
+
+		</div>
+
+		<!-- ========================================= -->
+		<!-- TOAST NOTIFICATION -->
+		<!-- ========================================= -->
+
+		<div id="toastContainer"></div>
+
+	</main>
+
+	<!-- ========================================= -->
+	<!-- HIDDEN FILE INPUT -->
+	<!-- ========================================= -->
+
+	<input type="file" id="resumeFileInput" accept=".pdf,.doc,.docx" hidden>
+	<!-- Job Details Modal -->
+
+	<div id="jobDetailsModal" class="modal">
+
+		<div class="modal-content job-modal-content">
+
+			<div class="modal-header">
+
+				<h2>Job Details</h2>
+
+				<span class="close-modal" onclick="closeJobDetailsModal()">
+					&times; </span>
+
+			</div>
+
+			<div class="modal-body">
+
+				<div class="job-detail-item">
+
+					<label>Job Title</label>
+
+					<p id="modalJobTitle">-</p>
+
+				</div>
+
+				<div class="job-detail-item">
+
+					<label>Company</label>
+
+					<p id="modalCompanyName">-</p>
+
+				</div>
+
+				<div class="job-detail-item">
+
+					<label>Location</label>
+
+					<p id="modalLocation">-</p>
+
+				</div>
+
+				<div class="job-detail-item">
+
+					<label>Employment Type</label>
+
+					<p id="modalEmploymentType">-</p>
+
+				</div>
+
+				<div class="job-detail-item">
+
+					<label>Experience Required</label>
+
+					<p id="modalExperience">-</p>
+
+				</div>
+
+				<div class="job-detail-item">
+
+					<label>Salary</label>
+
+					<p id="modalSalary">-</p>
+
+				</div>
+
+				<div class="job-detail-item">
+
+					<label>Job Status</label>
+
+					<p id="modalStatus">-</p>
+
+				</div>
+
+				<div class="job-detail-item">
+
+					<label>Application Deadline</label>
+
+					<p id="modalDeadline">-</p>
+
+				</div>
+
+				<div class="job-detail-item">
+
+					<label>Posted On</label>
+
+					<p id="modalCreatedAt">-</p>
+
+				</div>
+				<div class="job-detail-item full-width">
+
+					<label>Skills Required</label>
+
+					<p id="modalSkills">-</p>
+
+				</div>
+
+				<div class="job-detail-item full-width">
+
+					<label>Description</label>
+
+					<p id="modalDescription">-</p>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	</div>
+
+	</div>
+
+	<!-- ========================================= -->
+	<!-- APPLICATION TIMELINE MODAL -->
+	<!-- ========================================= -->
+
+	<div id="timelineModal" class="modal">
+
+		<div class="modal-content">
+
+			<div class="modal-header">
+
+				<h2>Application Timeline</h2>
+
+				<span class="close-modal" onclick="closeTimelineModal()">
+
+					&times; </span>
+
+			</div>
+
+			<div id="timelineContainer"></div>
+
+		</div>
+
+	</div>
+	<!-- ========================================= -->
+	<!-- JAVASCRIPT -->
+	<!-- ========================================= -->
+
+	<script src="/js/candidate-dashboard.js"></script>
+
+</body>
+
+</html>

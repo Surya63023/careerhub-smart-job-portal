@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CareerHub - Recruiter Dashboard</title>
+
+<!-- Google Fonts -->
+
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+	rel="stylesheet">
+
+<!-- Remix Icons -->
+
+<link
+	href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="/css/recruiter-dashboard.css">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+</head>
+
+<body>
+
+	<!-- ====================================== -->
+	<!-- OVERLAY -->
+	<!-- ====================================== -->
+
+	<div class="overlay" id="overlay"></div>
+
+	<!-- ====================================== -->
+	<!-- SIDEBAR -->
+	<!-- ====================================== -->
+
+	<aside class="sidebar" id="sidebar">
+
+		<div class="logo-section">
+
+			<div class="logo-icon">
+
+				<i class="ri-briefcase-4-fill"></i>
+
+			</div>
+
+			<h2>CareerHub</h2>
+
+		</div>
+
+		<nav class="sidebar-menu">
+
+			<a href="#" class="menu-item active"> <i
+				class="ri-dashboard-line"></i> <span>Dashboard</span>
+
+			</a> <a href="#recruiterProfileSection" class="menu-item"> <i
+				class="ri-user-line"></i> <span>Recruiter Profile</span>
+
+			</a> <a href="#companyProfileSection" class="menu-item"> <i
+				class="ri-building-line"></i> <span>Company</span>
+
+			</a> <a href="#jobsSection" class="menu-item"> <i
+				class="ri-briefcase-line"></i> <span>Manage Jobs</span>
+
+			</a> <a href="#applicationsSection" class="menu-item"> <i
+				class="ri-file-list-3-line"></i> <span>Applications</span>
+
+			</a> <a href="#aiMatchSection" class="menu-item"> <i
+				class="ri-brain-line"></i> <span>AI Matching</span>
+
+			</a> <a href="#" id="logoutBtn" class="menu-item logout-item"> <i
+				class="ri-logout-box-r-line"></i> <span>Logout</span>
+
+			</a>
+
+		</nav>
+
+	</aside>
+
+	<!-- ====================================== -->
+	<!-- MAIN CONTENT -->
+	<!-- ====================================== -->
+
+	<main class="main-content">
+
+		<!-- ====================================== -->
+		<!-- HEADER -->
+		<!-- ====================================== -->
+
+		<header class="top-header">
+
+			<div class="header-left">
+
+				<button class="menu-toggle" id="menuToggle">
+
+					<i class="ri-menu-line"></i>
+
+				</button>
+
+				<div class="search-box">
+
+					<i class="ri-search-line"></i> <input type="text"
+						id="jobSearchInput"
+						placeholder="Search jobs, skills, candidates..." />
+
+				</div>
+
+			</div>
+
+			<div class="header-right">
+
+				<button class="theme-toggle" id="themeToggle">
+
+					<i class="ri-moon-line"></i>
+
+				</button>
+
+				<div class="candidate-name">
+
+					<i class="ri-user-3-line"></i> <span id="headerRecruiterName">
+
+						Loading... </span>
+
+				</div>
+
+			</div>
+
+		</header>
+
+		<!-- ====================================== -->
+		<!-- WELCOME BANNER -->
+		<!-- ====================================== -->
+
+		<section class="welcome-banner">
+
+			<div class="welcome-content">
+
+				<span class="candidate-badge"> Recruiter Dashboard </span>
+
+				<h1>
+
+					Welcome Back, <span id="welcomeRecruiterName"> Loading... </span>
+
+				</h1>
+
+				<p id="welcomeDesignation">Loading Recruiter Details...</p>
+
+			</div>
+
+			<div class="welcome-status">
+
+				<div class="status-box">
+
+					<h3 id="recruiterVerificationStatus">VERIFIED</h3>
+
+					<span> Recruiter Status </span>
+
+				</div>
+
+			</div>
+
+		</section>
+
+
+
+		<!-- ====================================== -->
+		<!-- PROFILE + COMPANY -->
+		<!-- ====================================== -->
+
+		<section class="top-grid">
+
+			<!-- ====================================== -->
+			<!-- RECRUITER PROFILE -->
+			<!-- ====================================== -->
+
+			<div class="profile-card" id="recruiterProfileSection">
+
+				<div class="card-header">
+
+					<h2>
+
+						<i class="ri-user-line"></i> Recruiter Profile
+
+					</h2>
+
+				</div>
+
+				<div class="profile-details">
+
+					<div class="detail-box">
+
+						<label> Full Name </label> <span id="recruiterName">
+
+							Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label> Email </label> <span id="recruiterEmail">
+
+							Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label> Designation </label> <span id="designation">
+
+							Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label> Department </label> <span id="department">
+
+							Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label> Experience </label> <span id="yearsExperience">
+
+							Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label> Location </label> <span id="workLocation">
+
+							Loading... </span>
+
+					</div>
+
+				</div>
+
+				<div class="card-footer">
+
+					<button id="editRecruiterBtn" class="primary-btn">
+
+						<i class="ri-edit-line"></i> Edit Profile
+
+					</button>
+
+				</div>
+
+			</div>
+
+			<!-- ====================================== -->
+			<!-- COMPANY PROFILE -->
+			<!-- ====================================== -->
+
+			<div class="resume-card" id="companyProfileSection">
+
+				<div class="card-header">
+
+					<h2>
+
+						<i class="ri-building-line"></i> Company Profile
+
+					</h2>
+
+				</div>
+
+				<div class="resume-details">
+
+					<div class="detail-box">
+
+						<label> Company Name </label> <span id="companyName">
+
+							Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label> Company Email </label> <span id="companyEmail">
+
+							Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label> Phone </label> <span id="companyPhone"> Loading...
+
+						</span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label> Industry </label> <span id="industryType">
+
+							Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label> Company Size </label> <span id="companySize">
+
+							Loading... </span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label> Headquarters </label> <span id="headquartersLocation">
+
+							Loading... </span>
+
+					</div>
+
+				</div>
+				<div class="detail-box">
+					<label>Website</label> <span id="companyWebsite"></span>
+				</div>
+
+				<div class="detail-box">
+					<label>Founded Year</label> <span id="foundedYear"></span>
+				</div>
+
+				<div class="detail-box">
+					<label>Description</label> <span id="companyDescription"></span>
+				</div>
+				<div class="card-footer">
+
+					<button id="editCompanyBtn" class="primary-btn">
+
+						<i class="ri-edit-box-line"></i> Edit Company
+
+					</button>
+
+				</div>
+
+
+
+			</div>
+
+		</section>
+
+		<!-- PART 2 STARTS HERE -->
+
+		<!-- Manage Jobs Section -->
+		<!-- Applications Section -->
+		<!-- AI Matching Section -->
+		<!-- Modals -->
+		<!-- Loader -->
+		<!-- Toast Container -->
+		<!-- ====================================== -->
+		<!-- MANAGE JOBS SECTION -->
+		<!-- ====================================== -->
+
+		<section id="jobsSection" class="dashboard-section">
+
+			<div class="section-header">
+
+				<h2>
+
+					<i class="ri-briefcase-line"></i> Manage Jobs
+
+				</h2>
+
+				<button id="createJobBtn" class="primary-btn">
+
+					<i class="ri-add-line"></i> Create Job
+
+				</button>
+
+			</div>
+
+			<div id="jobsContainer" class="jobs-grid">
+
+				<!-- Dynamic Job Cards -->
+
+			</div>
+
+		</section>
+		<!-- ====================================== -->
+		<!-- STATISTICS -->
+		<!-- ====================================== -->
+
+		<section class="stats-grid">
+
+			<div class="stat-card">
+
+				<div class="stat-icon blue">
+
+					<i class="ri-briefcase-line"></i>
+
+				</div>
+
+				<div class="stat-content">
+
+					<h3 id="totalJobs">0</h3>
+
+					<p>Total Jobs</p>
+
+				</div>
+
+			</div>
+
+			<div class="stat-card">
+
+				<div class="stat-icon green">
+
+					<i class="ri-checkbox-circle-line"></i>
+
+				</div>
+
+				<div class="stat-content">
+
+					<h3 id="activeJobs">0</h3>
+
+					<p>Active Jobs</p>
+
+				</div>
+
+			</div>
+
+			<div class="stat-card">
+
+				<div class="stat-icon orange">
+
+					<i class="ri-file-list-3-line"></i>
+
+				</div>
+
+				<div class="stat-content">
+
+					<h3 id="totalApplications">0</h3>
+
+					<p>Applications</p>
+
+				</div>
+
+			</div>
+
+			<div class="stat-card">
+
+				<div class="stat-icon purple">
+
+					<i class="ri-award-line"></i>
+
+				</div>
+
+				<div class="stat-content">
+
+					<h3 id="shortlistedCount">0</h3>
+
+					<p>Shortlisted</p>
+
+				</div>
+
+			</div>
+
+		</section>
+		<!-- ====================================== -->
+		<!-- APPLICATIONS SECTION -->
+		<!-- ====================================== -->
+
+		<section id="applicationsSection" class="dashboard-section">
+
+			<div class="section-header">
+
+				<h2>
+
+					<i class="ri-file-list-3-line"></i> Job Applications
+
+				</h2>
+
+			</div>
+
+			<div id="applicationsContainer" class="applications-container">
+
+				<!-- Dynamic Applications -->
+
+			</div>
+
+		</section>
+
+		<!-- VIEW JOB MODAL -->
+
+		<div id="viewJobModal" class="modal-overlay">
+
+			<div class="modal-container">
+
+				<div class="modal-header">
+
+					<h2>Job Details</h2>
+
+					<button id="closeViewJobModal">
+
+						<i class="ri-close-line"></i>
+
+					</button>
+
+				</div>
+
+				<div class="job-view-content">
+
+					<div class="detail-box">
+
+						<label>Job Title</label>
+
+						<p id="viewJobTitle"></p>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Location</label>
+
+						<p id="viewJobLocation"></p>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Salary</label>
+
+						<p id="viewJobSalary"></p>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Experience</label>
+
+						<p id="viewJobExperience"></p>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Employment Type</label>
+
+						<p id="viewEmploymentType"></p>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Skills</label>
+
+						<p id="viewJobSkills"></p>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Description</label>
+
+						<p id="viewJobDescription"></p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- ====================================== -->
+		<!-- AI MATCHING SECTION -->
+		<!-- ====================================== -->
+
+		<section id="aiMatchSection" class="dashboard-section">
+
+			<div class="section-header">
+
+				<h2>
+
+					<i class="ri-brain-line"></i> AI Resume Matching
+
+				</h2>
+
+			</div>
+
+			<div id="aiMatchResults" class="jobs-grid">
+
+				<!-- Dynamic AI Results -->
+
+			</div>
+
+		</section>
+		<!-- ====================================== -->
+		<!-- VIEW JOB DETAILS MODAL -->
+		<!-- ====================================== -->
+
+		<div id="viewJobModal" class="modal-overlay">
+
+			<div class="modal-container">
+
+				<div class="modal-header">
+
+					<h2>Job Details</h2>
+
+					<button id="closeViewJobModal">
+
+						<i class="ri-close-line"></i>
+
+					</button>
+
+				</div>
+
+				<div class="resume-details">
+
+					<div class="detail-box">
+
+						<label>Job Title</label> <span id="viewJobTitle">-</span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Location</label> <span id="viewJobLocation">-</span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Salary</label> <span id="viewJobSalary">-</span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Experience</label> <span id="viewJobExperience">-</span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Employment Type</label> <span id="viewEmploymentType">-</span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Skills</label> <span id="viewJobSkills">-</span>
+
+					</div>
+
+					<div class="detail-box">
+
+						<label>Description</label> <span id="viewJobDescription">-</span>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		<!-- ====================================== -->
+		<!-- CREATE / EDIT JOB MODAL -->
+		<!-- ====================================== -->
+
+		<div id="jobModal" class="modal-overlay">
+
+			<div class="modal-container large-modal">
+
+				<div class="modal-header">
+
+					<h2 id="jobModalTitle">Create Job</h2>
+
+					<button id="closeJobModal">
+
+						<i class="ri-close-line"></i>
+
+					</button>
+
+				</div>
+
+				<form id="jobForm">
+
+					<div class="form-grid">
+
+						<div class="form-group">
+
+							<label> Job Title </label> <input type="text" id="jobTitle"
+								required>
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Job Location </label> <input type="text" id="jobLocation"
+								required>
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Salary Package </label> <input type="text"
+								id="salaryPackage" required>
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Experience Required </label> <input type="number"
+								id="experienceRequired" required>
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Employment Type </label> <select id="employmentType">
+
+								<option value="FULL_TIME">Full Time</option>
+
+								<option value="PART_TIME">Part Time</option>
+
+								<option value="CONTRACT">Contract</option>
+
+								<option value="INTERNSHIP">Internship</option>
+
+							</select>
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Application Deadline </label> <input
+								type="datetime-local" id="applicationDeadline" required>
+
+						</div>
+
+					</div>
+
+					<div class="form-group">
+
+						<label> Required Skills </label>
+
+						<textarea id="requiredSkills" rows="3" required></textarea>
+
+					</div>
+
+					<div class="form-group">
+
+						<label> Job Description </label>
+
+						<textarea id="jobDescription" rows="6" required></textarea>
+
+					</div>
+
+					<div class="modal-footer">
+
+						<button type="submit" class="primary-btn">Save Job</button>
+
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+
+		<!-- ====================================== -->
+		<!-- EDIT RECRUITER MODAL -->
+		<!-- ====================================== -->
+
+		<div id="recruiterModal" class="modal-overlay">
+
+			<div class="modal-container">
+
+				<div class="modal-header">
+
+					<h2>Edit Recruiter Profile</h2>
+
+					<button id="closeRecruiterModal">
+
+						<i class="ri-close-line"></i>
+
+					</button>
+
+				</div>
+
+				<form id="recruiterForm">
+
+					<div class="form-grid">
+
+						<div class="form-group">
+
+							<label> Company Name </label> <input type="text"
+								id="recruiterCompanyName">
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Designation </label> <input type="text"
+								id="recruiterDesignation">
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Department </label> <input type="text"
+								id="recruiterDepartment">
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Experience </label> <input type="number" step="0.1"
+								id="recruiterExperience">
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Work Location </label> <input type="text"
+								id="recruiterLocation">
+
+						</div>
+
+						<div class="form-group">
+
+							<label> LinkedIn URL </label> <input type="text"
+								id="recruiterLinkedin">
+
+						</div>
+
+					</div>
+
+					<div class="form-group">
+
+						<label> Recruiter Bio </label>
+
+						<textarea id="recruiterBio" rows="5"></textarea>
+
+					</div>
+
+					<div class="modal-footer">
+
+						<button type="submit" class="primary-btn">Update Profile
+
+						</button>
+
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+
+		<!-- ====================================== -->
+		<!-- EDIT COMPANY MODAL -->
+		<!-- ====================================== -->
+
+		<div id="companyModal" class="modal-overlay">
+
+			<div class="modal-container large-modal">
+
+				<div class="modal-header">
+
+					<h2>Edit Company</h2>
+
+					<button id="closeCompanyModal">
+
+						<i class="ri-close-line"></i>
+
+					</button>
+
+				</div>
+
+				<form id="companyForm">
+
+					<div class="form-grid">
+
+						<div class="form-group">
+
+							<label> Company Name </label> <input type="text"
+								id="companyNameInput">
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Email </label> <input type="email" id="companyEmailInput">
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Phone </label> <input type="text" id="companyPhoneInput">
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Website </label> <input type="text"
+								id="companyWebsiteInput">
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Industry </label> <input type="text"
+								id="industryTypeInput">
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Company Size </label> <select id="companySizeInput">
+
+								<option value="STARTUP">STARTUP</option>
+
+								<option value="SMALL">SMALL</option>
+
+								<option value="MEDIUM">MEDIUM</option>
+
+								<option value="LARGE">LARGE</option>
+
+							</select>
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Founded Year </label> <input type="number"
+								id="foundedYearInput">
+
+						</div>
+
+						<div class="form-group">
+
+							<label> Headquarters </label> <input type="text"
+								id="headquartersLocationInput">
+
+						</div>
+
+					</div>
+
+					<div class="form-group">
+
+						<label> Company Description </label>
+
+						<textarea id="companyDescriptionInput" rows="5"></textarea>
+
+					</div>
+
+					<div class="modal-footer">
+
+						<button type="submit" class="primary-btn">Update Company
+
+						</button>
+
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+
+		<!-- ====================================== -->
+		<!-- LOADING OVERLAY -->
+		<!-- ====================================== -->
+
+		<div id="loadingOverlay" class="loading-overlay">
+
+			<div class="loader"></div>
+
+			<p>Loading Recruiter Dashboard...</p>
+
+		</div>
+
+		<!-- ====================================== -->
+		<!-- TOAST CONTAINER -->
+		<!-- ====================================== -->
+
+		<div id="toastContainer"></div>
+
+	</main>
+
+	<!-- ====================================== -->
+	<!-- JAVASCRIPT -->
+	<!-- ====================================== -->
+
+	<script src="/js/recruiter-dashboard.js"></script>
+
+</body>
+</html>

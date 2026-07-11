@@ -1,0 +1,508 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+@import
+	url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap')
+	;
+
+/* ==========================================
+   RESET
+========================================== */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	min-height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	min-height: 100vh;
+}
+
+/* ==========================================
+   BACKGROUND
+========================================== */
+.register-container {
+	min-height: 100vh;
+	height: auto;
+	display: flex;
+	background: linear-gradient(120deg, rgba(10, 31, 100, 0.92),
+		rgba(84, 91, 255, 0.70), rgba(255, 144, 144, 0.65)),
+		url("/images/skyline.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+/* ==========================================
+   LEFT PANEL
+========================================== */
+.left-panel {
+	width: 52%;
+	padding: 50px 70px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: white;
+}
+
+.brand-section {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-bottom: 40px;
+}
+
+.brand-icon {
+	width: 64px;
+	height: 64px;
+	border-radius: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, #4f6fff, #8b5cf6);
+	color: white;
+	font-size: 26px;
+	box-shadow: 0 8px 25px rgba(79, 111, 255, 0.45);
+}
+
+.brand-section h2 {
+	font-size: 3rem;
+	font-weight: 800;
+	line-height: 1;
+}
+
+.brand-section p {
+	font-size: 1rem;
+	opacity: 0.95;
+	margin-top: 6px;
+}
+
+/* ==========================================
+   HERO
+========================================== */
+.hero-content h1 {
+	font-size: 4rem;
+	line-height: 1.1;
+	font-weight: 800;
+	color: #ffffff;
+	text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+	margin-bottom: 16px;
+}
+
+.hero-content h3 {
+	font-size: 1.6rem;
+	color: #ffd166;
+	font-style: italic;
+	margin-bottom: 18px;
+}
+
+.hero-content p {
+	font-size: 1rem;
+	max-width: 600px;
+	line-height: 1.8;
+	color: rgba(255, 255, 255, 0.96);
+	margin-bottom: 35px;
+}
+
+/* ==========================================
+   RIGHT PANEL
+========================================== */
+.right-panel {
+	width: 48%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 30px;
+}
+
+/* ==========================================
+   REGISTER CARD
+========================================== */
+.register-card {
+	width: 100%;
+	max-width: 580px;
+	background: #ffffff;
+	border-radius: 32px;
+	padding: 35px 40px;
+	box-shadow: 0 25px 60px rgba(0, 0, 0, 0.20);
+	position: relative;
+}
+
+.profile-icon {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	margin: 0 auto 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(135deg, #4f6fff, #8b5cf6);
+	color: white;
+	font-size: 32px;
+}
+
+.register-card h1 {
+	text-align: center;
+	font-size: 3rem;
+	font-weight: 800;
+	color: #152553;
+	margin-bottom: 10px;
+}
+
+.subtitle {
+	text-align: center;
+	color: #6b7280;
+	font-size: 1.05rem;
+	margin-bottom: 25px;
+}
+
+/* ==========================================
+   SUCCESS / ERROR
+========================================== */
+.success-message {
+	text-align: center;
+	color: #16a34a;
+	font-weight: 600;
+	margin-bottom: 12px;
+	min-height: 24px;
+}
+
+.error-message {
+	text-align: center;
+	color: #dc2626;
+	font-weight: 600;
+	margin-bottom: 12px;
+	min-height: 24px;
+}
+
+/* ==========================================
+   FORM
+========================================== */
+#registerForm {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+/* ==========================================
+   INPUT GROUP
+========================================== */
+.input-group {
+	position: relative;
+	display: flex;
+	align-items: center;
+	border: 2px solid #e5e7eb;
+	border-radius: 18px;
+	height: 64px;
+	padding: 0 18px;
+	transition: all 0.3s ease;
+}
+
+.input-group:hover {
+	border-color: #8b5cf6;
+}
+
+.input-group:focus-within {
+	border-color: #6d4aff;
+	box-shadow: 0 0 0 4px rgba(109, 74, 255, 0.12);
+}
+
+.input-group i {
+	color: #6d4aff;
+	font-size: 18px;
+}
+
+.input-group input {
+	flex: 1;
+	height: 100%;
+	border: none;
+	outline: none;
+	padding-left: 14px;
+	font-size: 1rem;
+	font-family: inherit;
+	background: transparent;
+}
+
+.input-group input::placeholder {
+	color: #9ca3af;
+}
+
+/* ==========================================
+   PASSWORD TOGGLE
+========================================== */
+.toggle-password {
+	cursor: pointer;
+	color: #6b7280;
+	transition: 0.3s;
+}
+
+.toggle-password:hover {
+	color: #6d4aff;
+}
+
+/* ==========================================
+   PASSWORD RULES
+========================================== */
+.password-rules {
+	background: #f8fafc;
+	border: 1px solid #e5e7eb;
+	border-radius: 16px;
+	padding: 14px 18px;
+	margin-top: -4px;
+}
+
+.password-rules p {
+	font-size: 0.90rem;
+	margin-bottom: 6px;
+	color: #64748b;
+	transition: 0.3s;
+}
+
+.password-rules p:last-child {
+	margin-bottom: 0;
+}
+
+/* ==========================================
+   VALID PASSWORD RULE
+========================================== */
+.rule-valid {
+	color: #16a34a !important;
+	font-weight: 600;
+}
+
+/* ==========================================
+   REGISTER BUTTON
+========================================== */
+.register-btn {
+	width: 100%;
+	height: 60px;
+	border: none;
+	border-radius: 18px;
+	background: linear-gradient(135deg, #4f6fff, #8b5cf6);
+	color: white;
+	font-size: 1rem;
+	font-weight: 700;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	transition: all 0.3s ease;
+	margin-top: 8px;
+}
+
+.register-btn:hover{
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 20px 40px rgba(79,111,255,.35);
+}
+
+.register-btn:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+	transform: none;
+}
+
+/* ==========================================
+   LOGIN SECTION
+========================================== */
+.login-section {
+	text-align: center;
+	margin-top: 20px;
+	color: #64748b;
+}
+
+.login-link {
+	text-decoration: none;
+	color: #4f46e5;
+	font-weight: 700;
+	margin-left: 6px;
+	transition: 0.3s;
+}
+
+.login-link:hover {
+	color: #6d28d9;
+}
+
+/* ==========================================
+   SECURITY NOTE
+========================================== */
+.security-note {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	color: #64748b;
+	font-size: 0.90rem;
+}
+
+.security-note i {
+	color: #16a34a;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+@media ( max-width : 1200px) {
+	.register-container {
+		flex-direction: column;
+	}
+	.left-panel {
+		width: 100%;
+		padding: 40px;
+	}
+	.right-panel {
+		width: 100%;
+		padding: 30px;
+	}
+	.feature-card, .footer-message {
+		width: 100%;
+	}
+}
+
+@media ( max-width : 768px) {
+	body {
+		overflow-y: auto;
+	}
+	.left-panel {
+		padding: 30px 20px;
+	}
+	 .hero-content h1{
+
+        font-size:2.4rem;
+    }
+
+    .hero-content h3{
+
+        font-size:1.3rem;
+    }
+	.hero-content h3 {
+		font-size: 1.4rem;
+	}
+	.hero-content p {
+		font-size: 1rem;
+	}
+	.brand-section h2 {
+		font-size: 2rem;
+	}
+	.register-card {
+		padding: 25px;
+	}
+	.register-card h1 {
+		font-size: 2.2rem;
+	}
+	.input-group {
+		height: 58px;
+	}
+}
+
+@media ( max-width : 480px) {
+	.hero-content h1 {
+		font-size: 2.2rem;
+	}
+	.register-card {
+		padding: 20px;
+	}
+	.profile-icon {
+		width: 70px;
+		height: 70px;
+		font-size: 28px;
+	}
+	.register-card h1 {
+		font-size: 1.9rem;
+	}
+}
+@keyframes floatAnimation {
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+.paper-plane{
+
+    animation:
+        floatAnimation 5s ease-in-out infinite;
+}
+@keyframes slideInRight{
+
+    from{
+        opacity:0;
+        transform:translateX(100px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+.register-card{
+
+    animation:
+        slideInRight 1s ease;
+}
+@keyframes fadeInLeft{
+
+    from{
+        opacity:0;
+        transform:translateX(-80px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+.left-panel{
+
+    animation:
+        fadeInLeft 1s ease;
+}
+.input-group{
+
+    transition:
+        all 0.3s ease;
+}
+
+.input-group:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(99,102,241,.15);
+}
+@keyframes glowPulse {
+
+    0%{
+        opacity:.6;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:.6;
+    }
+}
+.background-circle{
+
+    animation:
+        glowPulse 4s infinite ease-in-out;
+}

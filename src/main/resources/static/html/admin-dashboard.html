@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CareerHub - Admin Dashboard</title>
+
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+	rel="stylesheet">
+
+<!-- Remix Icons -->
+<link
+	href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="/css/admin-dashboard.css">
+
+</head>
+
+<body>
+
+	<!-- Overlay -->
+
+	<div class="overlay" id="overlay"></div>
+
+	<!-- Sidebar -->
+
+	<aside class="sidebar" id="sidebar">
+
+		<div class="logo-section">
+
+			<div class="logo-icon">
+
+				<i class="ri-shield-user-fill"></i>
+
+			</div>
+
+			<h2>CareerHub</h2>
+
+		</div>
+
+		<nav class="sidebar-menu">
+
+			<a href="#" class="menu-item active"> <i
+				class="ri-dashboard-line"></i> <span>Dashboard</span>
+
+			</a> <a href="#adminProfileSection" class="menu-item"> <i
+				class="ri-user-settings-line"></i> <span>Admin Profile</span>
+
+			</a> <a href="#usersSection" class="menu-item"> <i
+				class="ri-group-line"></i> <span>Users</span>
+
+			</a> <a href="#candidatesSection" class="menu-item"> <i
+				class="ri-user-star-line"></i> <span>Candidates</span>
+
+			</a> <a href="#recruitersSection" class="menu-item"> <i
+				class="ri-user-search-line"></i> <span>Recruiters</span>
+
+			</a> <a href="#companiesSection" class="menu-item"> <i
+				class="ri-building-line"></i> <span>Companies</span>
+
+			</a> <a href="#jobsSection" class="menu-item"> <i
+				class="ri-briefcase-line"></i> <span>Jobs</span>
+
+			</a> <a href="#applicationsSection" class="menu-item"> <i
+				class="ri-file-list-line"></i> <span>Applications</span>
+
+			</a> <a href="#reportsSection" class="menu-item"> <i
+				class="ri-bar-chart-line"></i> <span>Reports</span>
+
+			</a> <a href="#logsSection" class="menu-item"> <i
+				class="ri-database-2-line"></i> <span>System Logs</span>
+
+			</a> <a href="#" id="logoutBtn" class="menu-item logout-item"> <i
+				class="ri-logout-box-r-line"></i> <span>Logout</span>
+
+			</a>
+
+		</nav>
+
+	</aside>
+
+	<!-- Main Content -->
+
+	<main class="main-content">
+
+		<!-- Header -->
+
+		<header class="top-header">
+
+			<div class="header-left">
+
+				<button id="menuToggle" class="menu-toggle">
+
+					<i class="ri-menu-line"></i>
+
+				</button>
+
+				<div class="search-box">
+
+					<i class="ri-search-line"></i> <input type="text"
+						placeholder="Search users, jobs, companies...">
+
+				</div>
+
+			</div>
+
+			<div class="header-right">
+
+				<button id="themeToggle" class="theme-toggle">
+
+					<i class="ri-moon-line"></i>
+
+				</button>
+
+				<div class="admin-name">
+
+					<i class="ri-admin-line"></i> <span id="headerAdminName">
+
+						Loading... </span>
+
+				</div>
+
+			</div>
+
+		</header>
+
+		<!-- Welcome Banner -->
+
+		<section class="welcome-banner">
+
+			<div class="welcome-content">
+
+				<span class="admin-badge"> Admin Dashboard </span>
+
+				<h1>
+
+					Welcome Back, <span id="welcomeAdminName"> Loading... </span>
+
+				</h1>
+
+				<p>System Management & Monitoring Center</p>
+
+			</div>
+
+		</section>
+
+		<!-- Dashboard Grid -->
+
+		<section class="dashboard-grid">
+
+			<!-- Admin Profile -->
+
+			<div class="admin-profile-card" id="adminProfileSection">
+
+				<div class="profile-header">
+
+					<div class="profile-avatar">
+
+						<i class="ri-admin-fill"></i>
+
+					</div>
+
+					<div>
+
+						<h2 id="adminName">Admin User</h2>
+
+						<p id="adminRole">CareerHub Platform Administrator</p>
+
+					</div>
+
+				</div>
+
+				<div class="profile-details">
+
+					<div class="detail-item">
+
+						<span>Email</span> <strong id="adminEmail">
+
+							admin@careerhub.com </strong>
+
+					</div>
+
+					<div class="detail-item">
+
+						<span>Status</span> <strong> ACTIVE </strong>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
+
+		<!-- Statistics -->
+
+		<section class="stats-section">
+
+			<div class="stat-card">
+
+				<i class="ri-group-line"></i>
+
+				<h3 id="totalUsers">0</h3>
+
+				<p>Total Users</p>
+
+			</div>
+
+			<div class="stat-card">
+
+				<i class="ri-user-star-line"></i>
+
+				<h3 id="totalCandidates">0</h3>
+
+				<p>Total Candidates</p>
+
+			</div>
+
+			<div class="stat-card">
+
+				<i class="ri-user-search-line"></i>
+
+				<h3 id="totalRecruiters">0</h3>
+
+				<p>Total Recruiters</p>
+
+			</div>
+
+			<div class="stat-card">
+
+				<i class="ri-building-line"></i>
+
+				<h3 id="totalCompanies">0</h3>
+
+				<p>Total Companies</p>
+
+			</div>
+
+			<div class="stat-card">
+
+				<i class="ri-briefcase-line"></i>
+
+				<h3 id="totalJobs">0</h3>
+
+				<p>Total Jobs</p>
+
+			</div>
+
+			<div class="stat-card">
+
+				<i class="ri-file-list-line"></i>
+
+				<h3 id="totalApplications">0</h3>
+
+				<p>Total Applications</p>
+
+			</div>
+
+		</section>
+
+		<!-- Quick Actions -->
+
+		<section class="quick-actions-section">
+
+			<div class="section-header">
+
+				<h2>Quick Actions</h2>
+			</div>
+
+			<div class="actions-grid">
+
+				<a href="#usersSection" class="action-btn"> <i
+					class="ri-group-line"></i> Manage Users
+				</a> <a href="#candidatesSection" class="action-btn"> <i
+					class="ri-user-star-line"></i> Manage Candidates
+				</a> <a href="#recruitersSection" class="action-btn"> <i
+					class="ri-user-search-line"></i> Manage Recruiters
+				</a> <a href="#companiesSection" class="action-btn"> <i
+					class="ri-building-line"></i> Manage Companies
+				</a> <a href="#jobsSection" class="action-btn"> <i
+					class="ri-briefcase-line"></i> Manage Jobs
+				</a> <a href="#reportsSection" class="action-btn"> <i
+					class="ri-bar-chart-box-line"></i> View Reports
+				</a> <a href="#logsSection" class="action-btn"> <i
+					class="ri-database-2-line"></i> System Logs
+				</a>
+
+			</div>
+
+		</section>
+
+		<!-- User Management Section -->
+
+		<section class="user-management-section" id="usersSection">
+
+			<div class="section-header">
+
+				<h2>User Management</h2>
+
+				<p>Manage all platform users</p>
+
+			</div>
+
+			<div class="table-container">
+
+				<table class="admin-table">
+
+					<thead>
+
+						<tr>
+
+							<th>User ID</th>
+
+							<th>Name</th>
+
+							<th>Email</th>
+
+							<th>Role</th>
+
+							<th>Status</th>
+
+							<th>Actions</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody id="usersTableBody">
+
+						<tr>
+
+							<td colspan="6">Loading users...</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</section>
+
+		<section class="user-management-section" id="candidatesSection">
+
+			<div class="section-header">
+
+				<h2>Candidate Management</h2>
+
+				<p>Manage registered candidates</p>
+
+			</div>
+
+			<div class="table-container">
+
+				<table class="admin-table">
+
+					<thead>
+
+						<tr>
+
+							<th>ID</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Current Job</th>
+							<th>Location</th>
+							<th>Status</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody id="candidatesTableBody">
+
+						<tr>
+
+							<td colspan="6">Loading candidates...</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</section>
+
+		<section class="user-management-section" id="recruitersSection">
+
+			<div class="section-header">
+
+				<h2>Recruiter Management</h2>
+
+				<p>Manage registered recruiters</p>
+
+			</div>
+
+			<div class="table-container">
+
+				<table class="admin-table">
+
+					<thead>
+
+						<tr>
+
+							<th>ID</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Company</th>
+							<th>Designation</th>
+							<th>Location</th>
+							<th>Verified</th>
+							<th>Status</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody id="recruitersTableBody">
+
+						<tr>
+
+							<td colspan="8">Loading recruiters...</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</section>
+
+
+		<!-- =========================================
+     COMPANY MANAGEMENT
+========================================= -->
+
+		<section class="user-management-section" id="companiesSection">
+
+			<div class="section-header">
+
+				<h2>Company Management</h2>
+
+				<p>Manage registered companies</p>
+
+			</div>
+
+			<div class="table-container">
+
+				<table class="admin-table">
+
+					<thead>
+
+						<tr>
+
+							<th>ID</th>
+
+							<th>Company Name</th>
+
+							<th>Industry</th>
+
+							<th>Website</th>
+
+							<th>Location</th>
+
+							<th>Size</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody id="companiesTableBody">
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</section>
+
+		<!-- =========================================
+     JOB MANAGEMENT
+========================================= -->
+
+		<section class="user-management-section" id="jobsSection">
+
+			<div class="section-header">
+
+				<h2>Job Management</h2>
+
+				<p>Manage all posted jobs</p>
+
+			</div>
+
+			<div class="table-container">
+
+				<table class="admin-table">
+
+					<thead>
+
+						<tr>
+
+							<th>Job ID</th>
+
+							<th>Job Title</th>
+
+							<th>Company</th>
+
+							<th>Location</th>
+
+							<th>Employment Type</th>
+
+							<th>Status</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody id="jobsTableBody">
+
+						<tr>
+
+							<td colspan="6">Loading jobs...</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</section>
+
+
+		<!-- =========================================
+     APPLICATION MANAGEMENT
+========================================= -->
+
+		<section class="user-management-section" id="applicationsSection">
+
+			<div class="section-header">
+
+				<h2>Application Management</h2>
+
+				<p>Manage candidate applications</p>
+
+			</div>
+
+			<div class="table-container">
+
+				<table class="admin-table">
+
+					<thead>
+
+						<tr>
+
+							<th>ID</th>
+
+							<th>Candidate</th>
+
+							<th>Job Title</th>
+
+							<th>Company</th>
+
+							<th>Status</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody id="applicationsTableBody">
+
+						<tr>
+
+							<td colspan="5">Loading applications...</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</section>
+
+		<!-- =========================================
+     REPORTS MANAGEMENT
+========================================= -->
+
+		<section class="user-management-section" id="reportsSection">
+
+			<div class="section-header">
+
+				<h2>Reports Dashboard</h2>
+
+				<p>Platform analytics and summary reports</p>
+
+			</div>
+
+			<div class="reports-grid">
+
+				<div class="report-card">
+
+					<i class="ri-group-line"></i>
+
+					<h3 id="reportUsers">0</h3>
+
+					<p>Total Users</p>
+
+				</div>
+
+				<div class="report-card">
+
+					<i class="ri-user-star-line"></i>
+
+					<h3 id="reportCandidates">0</h3>
+
+					<p>Total Candidates</p>
+
+				</div>
+
+				<div class="report-card">
+
+					<i class="ri-user-search-line"></i>
+
+					<h3 id="reportRecruiters">0</h3>
+
+					<p>Total Recruiters</p>
+
+				</div>
+
+				<div class="report-card">
+
+					<i class="ri-building-line"></i>
+
+					<h3 id="reportCompanies">0</h3>
+
+					<p>Total Companies</p>
+
+				</div>
+
+				<div class="report-card">
+
+					<i class="ri-briefcase-line"></i>
+
+					<h3 id="reportJobs">0</h3>
+
+					<p>Total Jobs</p>
+
+				</div>
+
+				<div class="report-card">
+
+					<i class="ri-file-list-line"></i>
+
+					<h3 id="reportApplications">0</h3>
+
+					<p>Total Applications</p>
+
+				</div>
+
+			</div>
+
+			<section class="management-section" id="logsSection">
+
+				<div class="section-header">
+
+					<h2>System Logs</h2>
+
+					<p>Monitor administrator activities</p>
+
+				</div>
+
+				<div class="table-container">
+
+					<table class="admin-table">
+
+						<thead>
+
+							<tr>
+
+								<th>ID</th>
+
+								<th>Admin</th>
+
+								<th>Action</th>
+
+								<th>Module</th>
+
+								<th>IP Address</th>
+
+								<th>Date</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody id="logsTableBody">
+
+							<tr>
+
+								<td colspan="6">Loading logs...</td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+
+				</div>
+
+			</section>
+		</section>
+
+	</main>
+
+	<script src="/js/admin-dashboard.js"></script>
+
+</body>
+
+</html>

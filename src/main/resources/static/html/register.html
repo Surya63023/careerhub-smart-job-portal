@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CareerHub - Candidate Registration</title>
+
+<link rel="stylesheet" href="/css/register.css">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+</head>
+
+<body>
+
+	<div class="register-container">
+
+		<!-- LEFT SECTION -->
+
+		<div class="left-panel">
+
+			<div class="brand-section">
+
+				<div class="brand-icon">
+					<i class="fa-solid fa-briefcase"></i>
+				</div>
+
+				<div>
+					<h2>CareerHub</h2>
+					<p>Smart Job Portal</p>
+				</div>
+
+			</div>
+
+			<div class="hero-content">
+
+				<h1>Start Your Career Journey.</h1>
+
+				<h3>Join CareerHub Today.</h3>
+
+				<p>Create your profile, upload your resume, discover jobs,
+					connect with recruiters, and accelerate your professional growth.</p>
+
+			</div>
+
+			<div class="feature-card">
+
+				<i class="fa-solid fa-magnifying-glass"></i> <span> Discover
+					Thousands Of Jobs </span>
+
+			</div>
+
+			<div class="feature-card">
+
+				<i class="fa-solid fa-chart-line"></i> <span> Track
+					Applications Easily </span>
+
+			</div>
+
+			<div class="feature-card">
+
+				<i class="fa-solid fa-users"></i> <span> Connect With
+					Recruiters </span>
+
+			</div>
+
+			<div class="footer-message">
+
+				<i class="fa-solid fa-star"></i> <span> Your dream career
+					starts here. </span>
+
+			</div>
+
+		</div>
+
+		<!-- RIGHT SECTION -->
+
+		<div class="right-panel">
+
+			<div class="register-card">
+
+				<div class="profile-icon">
+					<i class="fa-solid fa-user-plus"></i>
+				</div>
+
+				<h1>Create Account</h1>
+
+				<p class="subtitle">Register and start building your future.</p>
+
+				<div id="successMessage" class="success-message"></div>
+
+				<div id="errorMessage" class="error-message"></div>
+
+				<form id="registerForm">
+
+					<div class="input-group">
+
+						<i class="fa-solid fa-user"></i> <input type="text" id="firstName"
+							placeholder="First Name" required>
+
+					</div>
+
+					<div class="input-group">
+
+						<i class="fa-solid fa-user"></i> <input type="text" id="lastName"
+							placeholder="Last Name" required>
+
+					</div>
+
+					<div class="input-group">
+
+						<i class="fa-solid fa-envelope"></i> <input type="email"
+							id="email" placeholder="Email Address" required>
+
+					</div>
+					<div class="input-group">
+
+						<i class="fa-solid fa-phone"></i> <input type="tel"
+							id="phoneNumber" placeholder="Phone Number" maxlength="10"
+							required>
+
+					</div>
+
+					<div class="input-group password-group">
+
+						<i class="fa-solid fa-lock"></i> <input type="password"
+							id="password" placeholder="Password" required> <span
+							id="togglePassword" class="toggle-password"> <i
+							class="fa-solid fa-eye"></i>
+
+						</span>
+
+					</div>
+
+					<div class="input-group password-group">
+
+						<i class="fa-solid fa-lock"></i> <input type="password"
+							id="confirmPassword" placeholder="Confirm Password" required>
+
+						<span id="toggleConfirmPassword" class="toggle-password"> <i
+							class="fa-solid fa-eye"></i>
+
+						</span>
+
+					</div>
+
+					<!-- PASSWORD RULES -->
+
+					<div class="password-rules">
+
+						<p id="ruleLength">❌ Minimum 8 Characters</p>
+
+						<p id="ruleUpper">❌ One Uppercase Letter</p>
+
+						<p id="ruleLower">❌ One Lowercase Letter</p>
+
+						<p id="ruleNumber">❌ One Number</p>
+
+						<p id="ruleSpecial">❌ One Special Character</p>
+
+					</div>
+
+					<button type="submit" id="registerButton" class="register-btn">
+
+						<i class="fa-solid fa-user-plus"></i> <span> Register </span>
+
+					</button>
+
+				</form>
+
+				<div class="login-section">
+
+					<span> Already Have An Account? </span> <a href="/html/login.html"
+						class="login-link"> Login </a>
+
+				</div>
+
+				<div class="security-note">
+
+					<i class="fa-solid fa-shield-halved"></i> <span> Your
+						information is secure and encrypted. </span>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<script src="/js/register.js"></script>
+
+</body>
+
+</html>

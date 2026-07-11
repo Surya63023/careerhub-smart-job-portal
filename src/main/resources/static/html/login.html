@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CareerHub - Smart Job Portal</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="../css/login.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+</head>
+
+<body>
+
+    <!-- ===================================== -->
+    <!-- MAIN CONTAINER -->
+    <!-- ===================================== -->
+
+    <div class="page-container">
+
+        <!-- ===================================== -->
+        <!-- LEFT CONTENT -->
+        <!-- ===================================== -->
+
+        <section class="branding-section">
+
+            <!-- Logo -->
+
+            <div class="logo-container">
+
+                <div class="logo-box">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                </div>
+
+                <div>
+
+                    <h1 class="brand-name">
+                        CareerHub
+                    </h1>
+
+                    <p class="brand-subtitle">
+                        Smart Job Portal
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Hero Content -->
+
+            <div class="hero-content">
+
+                <h2 class="hero-title">
+
+                    Your Career.
+                    <br>
+                    Your Future.
+
+                </h2>
+
+                <h3 class="hero-mission">
+
+                    Our Mission.
+                </h3>
+
+                <p class="hero-description">
+
+                    Discover meaningful opportunities,
+                    enhance your skills, connect with
+                    top employers, and build the career
+                    you've always dreamed of through
+                    intelligent AI-powered job matching.
+
+                </p>
+
+            </div>
+
+            <!-- Compact Features -->
+
+            <div class="feature-list">
+
+                <div class="feature-item">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <span>
+
+                        Find Better Jobs
+
+                    </span>
+
+                </div>
+
+                <div class="feature-item">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>
+
+                        Grow Your Career
+
+                    </span>
+
+                </div>
+
+                <div class="feature-item">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <span>
+
+                        Build Your Network
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Career Quote -->
+
+            <div class="career-message">
+
+                <i class="fa-solid fa-star"></i>
+
+                <span>
+
+                    Every step today brings you closer
+                    to the career you deserve.
+
+                </span>
+
+            </div>
+
+        </section>
+
+        <!-- ===================================== -->
+        <!-- LOGIN SECTION -->
+        <!-- ===================================== -->
+
+        <section class="login-section">
+
+            <div class="login-card">
+
+                <!-- Avatar -->
+
+                <div class="user-avatar">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+                <!-- Heading -->
+
+                <h2 class="login-heading">
+
+                    Welcome Back!
+
+                </h2>
+
+                <p class="login-subheading">
+
+                    Login to continue your journey
+                    towards a better career.
+
+                </p>
+
+                <!-- Login Form -->
+
+                <form id="loginForm">
+
+                    <!-- Email -->
+
+                    <div class="input-group">
+
+                        <div class="input-icon">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                        </div>
+
+                        <div class="input-content">
+
+                            <label>
+
+                                Email Address
+
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="your@email.com"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Password -->
+
+                    <div class="input-group">
+
+                        <div class="input-icon">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                        </div>
+
+                        <div class="input-content">
+
+                            <label>
+
+                                Password
+
+                            </label>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                required>
+
+                        </div>
+
+                        <div
+                            class="password-toggle"
+                            id="togglePassword">
+
+                            <i class="fa-regular fa-eye"></i>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Forgot Password -->
+
+                    <div class="forgot-password">
+
+                        <a href="#">
+
+                            Forgot Password?
+
+                        </a>
+
+                    </div>
+
+                    <!-- Login Button -->
+
+                    <button
+                        type="submit"
+                        id="loginButton"
+                        class="login-btn">
+
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+
+                        <span>
+
+                            Login
+
+                        </span>
+
+                    </button>
+
+                    <!-- Success Message -->
+
+                    <div
+                        id="successMessage"
+                        class="success-message">
+
+                    </div>
+
+                    <!-- Error Message -->
+
+                    <div
+                        id="errorMessage"
+                        class="error-message">
+
+                    </div>
+
+                </form>
+
+                <!-- Divider -->
+
+                <div class="divider">
+
+                    <span>
+
+                        OR
+
+                    </span>
+
+                </div>
+
+                <!-- Register Button -->
+
+                <button
+                    type="button"
+                    class="register-btn">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    <span>
+
+                        Register
+
+                    </span>
+
+                </button>
+
+                <!-- Security Message -->
+
+                <div class="security-info">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span>
+
+                        Your data is safe with us.
+                        We never share your information.
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- JavaScript -->
+
+    <script src="../js/login.js"></script>
+
+</body>
+
+</html>
