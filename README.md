@@ -813,7 +813,7 @@ The Recruiter Dashboard provides recruiters with tools to:
 - View applications
 - Shortlist applicants
 
-![Recruiter Dashboard](screenshots/Recruiter.png)
+![Recruiter Dashboard](screenshots/Recuiter.png)
 
 ---
 
