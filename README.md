@@ -894,7 +894,7 @@ https://surya63023.github.io/surya-developer-portfolio/
 
 **LinkedIn**
 
-> Add your LinkedIn profile URL here.
+www.linkedin.com/in/suryateja-developer
 
 ---
 
